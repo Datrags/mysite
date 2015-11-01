@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<canvas id="ctx" widith="500" height="50" style = "border:1px solod #000000;"></canvas>
+<!--  python -m SimpleHTTPServer 3000 -->
+<head>
+  <link href ="css/style.css" rel="stylesheet" type="text/css" />
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <title>My Personal Page</title>
+</head>
+
+<body>
+  <h1 class="top">Welcome to the site!</h1>
+  <h2 class="top">There may be nothing here but...</h2>
+  <div>
+    <p class="top">Currently I'm working on a few projects in Python mostly, but soon some may be in Ruby.
+    </p>
+    <ul class="top"><h3>Current Projects in progress</h3>
+      <li>Simple RPG game</li>
+      <li>Calculus Function</li>
+    </ul>
+  </div>
+  <p>Here's a green block you can move.</p>
+  <div id='container'>
+    <div id='guy'></div>
+</div>
+</body>
+  <script>
+var ctx = document.getElementById("ctx").getContext("2d");
+
+var guy = document.getElementById('guy');
+var container = document.getElementById('container');
+var guyx = 0;
+var guyy = 0;
+
+ctx.rect(guyx,guyy,50,50);
+
+//left arrow 37
+//up arrow	38
+//right arrow 39
+//down arrow 40
+function anim(e){
+    if(e.keyCode == 37){
+        guyx -= 12;
+        guy.style.left = guyx + 'px';
+    }
+    if(e.keyCode == 39){
+        guyx += 12;
+        guy.style.left = guyx + 'px';
+    }
+    if(e.keyCode == 38){
+      guyy -= 12;
+      guy.style.top = guyy + 'px';
+    }
+    if(e.keyCode == 40){
+      guyy += 12;
+      guy.style.top = guyy + 'px';
+    }
+}
+document.onkeydown = anim;
+
+
+</script>
+</html>
