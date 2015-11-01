@@ -34,10 +34,10 @@
   <script>
 var ctx = document.getElementById("ctx").getContext("2d");
 
-var guy = document.getElementById('guy');
+var box = document.getElementById('guy');
 var container = document.getElementById('container');
-var guyx = 0;
-var guyy = 0;
+var box_x = 0;
+var box_y = 0;
 
 ctx.rect(guyx,guyy,50,50);
 
@@ -47,20 +47,20 @@ ctx.rect(guyx,guyy,50,50);
 //down arrow 40
 function anim(e){
     if(e.keyCode == 37){
-        guyx -= 12;
-        guy.style.left = guyx + 'px';
+    box_x -= 12;
+    box.style.left = box_x + 'px';
     }
     if(e.keyCode == 39){
-        guyx += 12;
-        guy.style.left = guyx + 'px';
+      box_x += 12;
+      box.style.left = box_x + 'px';
     }
     if(e.keyCode == 38){
-      guyy -= 12;
-      guy.style.top = guyy + 'px';
+      box_y -= 12;
+      box.style.top = box_y + 'px';
     }
     if(e.keyCode == 40){
-      guyy += 12;
-      guy.style.top = guyy + 'px';
+      box_y += 12;
+      box.style.top = box_y + 'px';
     }
 }
 document.onkeydown = anim;
